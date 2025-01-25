@@ -1,0 +1,92 @@
+### Register User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "sai suraj",
+  "email": "sai.doe@example.com",
+  "password": "securepassword123"
+}
+
+### Login User6
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "sai.doe@example.com",
+  "password": "securepassword123"
+}
+
+
+### Create Customer
+POST http://localhost:5000/api/customers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImlhdCI6MTczNzc5NzE2NiwiZXhwIjoxNzM3ODAwNzY2fQ.aex5pyovEMhsW7l29tSv26ipMgWaGFNRyD9Y040HHPI
+
+{
+  "name": "Jane sai",
+  "email": "jane.smsh@example.com",
+  "phone": "123-456-7890",
+  "company": "ABC Corp"
+}
+
+
+### Get Customers
+GET http://localhost:5000/api/customers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNzc5NTMyOSwiZXhwIjoxNzM3Nzk4OTI5fQ.9-FVSRkUHFT3JHOVH2zcjwRB5AbdHuuDUQhmBLvaqUo
+
+### 
+
+PUT http://localhost:5000/api/customers/22
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNzc5NTMyOSwiZXhwIjoxNzM3Nzk4OTI5fQ.9-FVSRkUHFT3JHOVH2zcjwRB5AbdHuuDUQhmBLvaqUo
+
+{
+  "name": "Updated Name",
+  "email": "updatedemail@example.com",
+  "phone": "9876543210",
+  "company": "Updated Company"
+}
+
+
+###
+
+DELETE http://localhost:5000/api/customers/22
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNzc5NTMyOSwiZXhwIjoxNzM3Nzk4OTI5fQ.9-FVSRkUHFT3JHOVH2zcjwRB5AbdHuuDUQhmBLvaqUo
+
+
+###
+
+DELETE http://localhost:5000/api/auth/users/10
+
+###
+
+GET http://localhost:5000/api/auth/users
+
+###
+
+PUT http://localhost:5000/api/auth/users/11
+Content-Type: application/json
+
+{
+  "name": "Updated Usesr",
+  "email": "updated@example.com",
+  "password": "newpassword123"
+}
+
+
+###
+GET http://localhost:5000/api/customers/search?name=Jane
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTczNzc5NzU4OCwiZXhwIjoxNzM3ODAxMTg4fQ.lnYqHvUSUrnqV517HfJ-wQi70jQsixD5bqQbFDhOF9Q
+
+
+###
+GET http://localhost:5000/api/customers/search?email=john.doe@example.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNzc5NTMyOSwiZXhwIjoxNzM3Nzk4OTI5fQ.9-FVSRkUHFT3JHOVH2zcjwRB5AbdHuuDUQhmBLvaqUo
+
+
+###
+
+GET http://localhost:5000/api/customers/search?phone=1234567890
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNzc5NTMyOSwiZXhwIjoxNzM3Nzk4OTI5fQ.9-FVSRkUHFT3JHOVH2zcjwRB5AbdHuuDUQhmBLvaqUo
+

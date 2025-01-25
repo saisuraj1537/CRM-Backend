@@ -1,0 +1,196 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "CRM API",
+      "version": "1.0.0",
+      "description": "This is the API documentation for the CRM system."
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5000/api"
+      }
+    ],
+    "paths": {
+      "/customers": {
+        "get": {
+          "summary": "Get a list of customers",
+          "operationId": "getCustomers",
+          "responses": {
+            "200": {
+              "description": "List of customers",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a new customer",
+          "operationId": "createCustomer",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Customer created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/customers/{customerId}": {
+        "get": {
+          "summary": "Get a specific customer by ID",
+          "operationId": "getCustomerById",
+          "parameters": [
+            {
+              "name": "customerId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "example": 1
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Customer details",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update a specific customer by ID",
+          "operationId": "updateCustomer",
+          "parameters": [
+            {
+              "name": "customerId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "example": 1
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Customer updated",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a customer by ID",
+          "operationId": "deleteCustomer",
+          "parameters": [
+            {
+              "name": "customerId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "example": 1
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Customer deleted"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "name": {
+              "type": "string",
+              "example": "John Doe"
+            },
+            "email": {
+              "type": "string",
+              "example": "johndoe@example.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "+1234567890"
+            },
+            "company": {
+              "type": "string",
+              "example": "TechCorp"
+            }
+          }
+        },
+        "CustomerInput": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            }
+          },
+          "required": ["name", "email", "phone"]
+        }
+      }
+    }
+  }
+  
